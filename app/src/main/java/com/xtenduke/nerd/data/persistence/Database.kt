@@ -18,7 +18,7 @@ abstract class AppDatabase: RoomDatabase() {
                 context.applicationContext,
                 AppDatabase::class.java,
                 "db",
-            ).also { instance = it }
+            ).build().also { instance = it }
         }
     }
 }
