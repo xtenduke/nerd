@@ -5,12 +5,12 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
-object OpenHardwareMonitorApi {
+class OpenHardwareMonitorApi(private val host: String) {
     private val retrofit = Retrofit.Builder()
-        .baseUrl("http://192.168.2.173:8085")
+        .baseUrl(host)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
-    val openHardwareMonitorService: OpenHardwareMonitorService = retrofit.create(
+    public var openHardwareMonitorService: OpenHardwareMonitorService = retrofit.create(
         OpenHardwareMonitorService::class.java
     )
 }
